@@ -188,7 +188,7 @@
     <Content Include="images\Nickel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\Nickles.png">
+    <Content Include="images\Nickels.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="images\One.png">
