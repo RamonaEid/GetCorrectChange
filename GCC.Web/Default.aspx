@@ -35,7 +35,7 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCash" runat="server" ControlToValidate="cashTextBox"
                     CssClass="text-danger" ErrorMessage="Custsomer Game Me is required." />
                 <asp:RegularExpressionValidator ID="RegularExpressionValidatorCash" runat="server" ControlToValidate="cashTextBox"
-                    CssClass="text-danger" ValidationExpression="\d{1,3}\.\d{2}"
+                    CssClass="text-danger" ValidationExpression="\d{0,3}\.\d{2}"
                     ErrorMessage="You must enter dollars AND cents including the dot." />
             </div>
         </div>

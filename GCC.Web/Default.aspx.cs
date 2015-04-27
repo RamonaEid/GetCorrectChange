@@ -46,14 +46,17 @@ namespace GCC.Web
                 resultLabel.CssClass = "text-danger";
                 saleTextBox.Text = "";
             }
+            else if (cash < sale)
+            {
+                resultLabel.Text = "Excuse me, but you haven't given me money to cover the sale.";
+                resultLabel.CssClass = "text-danger";
+            }
             else
             {
-                //var cents = ConvertDecimalMoneyToCents(sale) - ConvertDecimalMoneyToCents(cash);
                 var curChange = (cash - sale);
                 var excludeList = MoneyManager.CreateExcludeList();
                 var change = CalculateChange.GetCorrectChange(curChange, excludeList);
 
-                //resultLabel.Text = String.Format("Sale: {0:C} <br/>Cash: {1} <br/>Change: {2:C}", sale, cash, (cents / 100));
                 resultLabel.Text = String.Format("Change: {0:C}", (sale-cash));
 
                 resultLabel.CssClass = "text-success";
