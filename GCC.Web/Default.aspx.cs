@@ -203,8 +203,13 @@ namespace GCC.Web
                 }
             }
 
+            SetExcludedDisplay(excludedList);
+        }
+
+        private void SetExcludedDisplay(List<ICurrency> excludedList)
+        {
             const string text = "NOT IN TILL";
-            cssClass = "text-danger";
+            const string cssClass = "text-danger";
             const string url = "";
 
             foreach (var denom in excludedList)
@@ -253,8 +258,6 @@ namespace GCC.Web
                         break;
                 }
             }
-
-
         }
 
         private string FormatLabel(TillMoney denom)
