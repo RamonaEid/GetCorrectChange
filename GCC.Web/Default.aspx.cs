@@ -48,7 +48,7 @@ namespace GCC.Web
             }
             else if (cash < sale)
             {
-                resultLabel.Text = "Excuse me, but you haven't given me money to cover the sale.";
+                resultLabel.Text = "Excuse me, but you haven't given me enough money to cover the sale.";
                 resultLabel.CssClass = "text-danger";
             }
             else
