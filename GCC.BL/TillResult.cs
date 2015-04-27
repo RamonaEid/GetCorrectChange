@@ -8,8 +8,8 @@ namespace GCC.BL
 {
     public class TillResult
     {
-        public int Result { get; set; }
-        public int Remainder { get; set; }
-        public int Denomination { get; set; }
+        public decimal Result { get; set; }
+        public decimal Remainder { get; set; }
+        public decimal Denomination { get; set; }
     }
 }

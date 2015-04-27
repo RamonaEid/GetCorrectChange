@@ -6,6 +6,8 @@ using System.Net.Mime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GCC.BL;
+using Microsoft.Ajax.Utilities;
 
 namespace GCC.Web
 {
@@ -46,10 +48,75 @@ namespace GCC.Web
             }
             else
             {
-                resultLabel.Text = "Sale: " + sale + "<br/>Cash: " + cash + "<br/>Change: (coming soon)";
+                //var cents = ConvertDecimalMoneyToCents(sale) - ConvertDecimalMoneyToCents(cash);
+                var curChange = (sale - cash);
+                var excludeList = MoneyManager.CreateExcludeList();
+                var change = CalculateChange.GetCorrectChange(curChange, excludeList);
+
+                //resultLabel.Text = String.Format("Sale: {0:C} <br/>Cash: {1} <br/>Change: {2:C}", sale, cash, (cents / 100));
+                resultLabel.Text = String.Format("Change: {0:C}", (sale-cash));
+
                 resultLabel.CssClass = "text-success";
+                SetDisplay(change);
             }
 
+        }
+
+        private void SetDisplay(List<TillMoney> change)
+        {
+            foreach (var denom in change)
+            {
+                switch (denom.Name)
+                {
+                    case Enums.CurrencyType.Hundred:
+                        labelHundred.Text = FormatLabel(denom);
+                        imgHundred.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Twenty:
+                        labelTwenty.Text = FormatLabel(denom);
+                        imgTwenty.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Ten:
+                        labelTen.Text = FormatLabel(denom);
+                        imgTen.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Five:
+                        labelFive.Text = FormatLabel(denom);
+                        imgFive.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.One:
+                        labelOne.Text = FormatLabel(denom);
+                        imgOne.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Dime:
+                        labelDime.Text = FormatLabel(denom);
+                        imgDime.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Nickel:
+                        labelNickel.Text = FormatLabel(denom);
+                        imgNickel.ImageUrl = FormatImage(denom);
+                        break;
+                    case Enums.CurrencyType.Penny:
+                        labelPenny.Text = FormatLabel(denom);
+                        imgPenny.ImageUrl = FormatImage(denom);
+                        break;
+                }
+            }
+        }
+
+        private string FormatLabel(TillMoney denom)
+        {
+            var result = denom.Val == 1 ? String.Format("{0} {1}", denom.Val, denom.Name) : String.Format("{0} {1}", denom.Val, denom.PluralName);
+
+            return result;
+        }
+
+        private string FormatImage(TillMoney denom)
+        {
+            var result = "";
+            if (denom.Val == 0) return result;
+            result = DisplayCurrency.GetPathameOfCurrencyImage(denom);
+            return result;
         }
     }
 }

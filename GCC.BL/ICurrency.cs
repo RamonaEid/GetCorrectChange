@@ -9,7 +9,7 @@ namespace GCC.BL
     public interface ICurrency
     {
         Enums.CurrencyType Name { get; }
-        int Val { get; }
+        decimal Val { get; }
         Enums.CurrencyPluralType PluralName { get; }
     }
 }

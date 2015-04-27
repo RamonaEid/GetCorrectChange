@@ -4,16 +4,16 @@ namespace GCC.BL
 {
     public class CalculateChange
     {
-        public static List<TillMoney> GetCorrectChange(int cents, List<ICurrency> excludeList)
+        public static List<TillMoney> GetCorrectChange(decimal change, List<ICurrency> excludeList)
         {
             var resultList = new List<TillMoney>();
-            var curCents = cents;
+            var curChange = change;
             var tillMoneyList = MoneyManager.CreateTypesOfMoneyInTillList(excludeList);
             foreach (var denom in tillMoneyList)
             {
-                var tillResult = PullDenominationFromTill(curCents, denom.Val);
+                var tillResult = PullDenominationFromTill(curChange, denom.Val);
                 AddToResultList(denom, tillResult, resultList);
-                curCents = tillResult.Remainder;
+                curChange = tillResult.Remainder;
             }
 
             return resultList;
@@ -30,12 +30,12 @@ namespace GCC.BL
             resultList.Add(denominationPulled);
         }
 
-        public static TillResult PullDenominationFromTill(int cents, int denominationToPull)
+        public static TillResult PullDenominationFromTill(decimal change, decimal denominationToPull)
         {
             return new TillResult
             {
-                Result = cents / denominationToPull,
-                Remainder = cents % denominationToPull,
+                Result = decimal.Truncate(change / denominationToPull),
+                Remainder = change % denominationToPull,
             };
         }
 

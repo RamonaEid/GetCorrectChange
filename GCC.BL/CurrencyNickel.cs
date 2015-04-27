@@ -13,9 +13,9 @@ namespace GCC.BL
             get { return Enums.CurrencyType.Nickel; }
         }
 
-        public int Val
+        public decimal Val
         {
-            get { return 5; }
+            get { return .05M; }
         }
 
         public Enums.CurrencyPluralType PluralName

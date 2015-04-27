@@ -65,7 +65,7 @@ namespace GCC.Tests
         [TestMethod]
         public void CreateExcludeListAndParamsEmptyTest()
         {
-            var excludedArray = new ICurrency[] {};
+            var excludedArray = new ICurrency[] { };
             var expected = excludedArray;
 
             var actual = MoneyManager.CreateExcludeList(excludedArray);
@@ -76,7 +76,7 @@ namespace GCC.Tests
         [TestMethod]
         public void CreateExcludeListAndParamsHundredTest()
         {
-            var excludedArray = new ICurrency[] { new CurrencyHundred()};
+            var excludedArray = new ICurrency[] { new CurrencyHundred() };
             var expected = excludedArray.ToList();
 
             var actual = MoneyManager.CreateExcludeList(excludedArray);
@@ -89,7 +89,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -136,7 +136,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -155,7 +155,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -163,7 +163,7 @@ namespace GCC.Tests
         {
             var expected = _moneyList;
 
-            var excludeList =MoneyManager.CreateExcludeList();
+            var excludeList = MoneyManager.CreateExcludeList();
             var actual = MoneyManager.CreateTypesOfMoneyInTillList(excludeList);
 
             Assert.AreEqual(expected.Count, actual.Count);
@@ -174,7 +174,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -194,7 +194,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -214,7 +214,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -234,7 +234,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -254,7 +254,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -274,7 +274,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -294,7 +294,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -314,7 +314,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -338,7 +338,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
         [TestMethod]
@@ -364,7 +364,7 @@ namespace GCC.Tests
                 Assert.AreEqual(expected[i].Val, actual[i].Val);
                 Assert.AreEqual(expected[i].PluralName, actual[i].PluralName);
             }
-            
+
         }
 
     }

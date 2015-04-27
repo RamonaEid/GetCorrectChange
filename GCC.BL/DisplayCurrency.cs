@@ -26,8 +26,8 @@ namespace GCC.BL
         {
             var imgNum = 0;
             var val = money.Val;
-            if (val < 0) return imgNum;
-            imgNum = val;
+            if ((int)val < 0) return imgNum;
+            imgNum = (int)val;
 
             return imgNum;
         }

@@ -13,9 +13,9 @@ namespace GCC.BL
             get { return Enums.CurrencyType.Ten; }
         }
 
-        public int Val
+        public decimal Val
         {
-            get { return 1000; }
+            get { return 10.00M; }
         }
 
         public Enums.CurrencyPluralType PluralName

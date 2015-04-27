@@ -9,7 +9,7 @@ namespace GCC.BL
     public class TillMoney
     {
         public Enums.CurrencyType Name { get; set; }
-        public int Val { get; set; }
+        public decimal Val { get; set; }
         public Enums.CurrencyPluralType PluralName { get; set; }
     }
 }

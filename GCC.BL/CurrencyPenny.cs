@@ -12,9 +12,9 @@ namespace GCC.BL
             get { return Enums.CurrencyType.Penny; }
         }
 
-        public int Val
+        public decimal Val
         {
-            get { return 1; }
+            get { return .01M; }
         }
 
         public Enums.CurrencyPluralType PluralName

@@ -8,7 +8,7 @@ namespace GCC.Tests
     public class CalculateChangeTests
     {
         List<ICurrency> _moneyList = new List<ICurrency>();
-        
+
         [TestInitialize]
         public void Initialize()
         {
@@ -31,12 +31,12 @@ namespace GCC.Tests
         [TestMethod]
         public void GetCorrectChangeWithZeroCents_EmptyExcludeListTest()
         {
-            var cents = 0;
+            decimal cents = .00M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -91,12 +91,12 @@ namespace GCC.Tests
         [TestMethod]
         public void GetCorrectChangeWithFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 48;
+            decimal cents = .48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -149,14 +149,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithOneHundredFortyEightCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithOneDollarAndFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 148;
+            var cents = 1.48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -209,14 +209,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithSixHundredFortyEightCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithSixDollarsAndFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 648;
+            var cents = 6.48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -269,14 +269,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithOneThousandSixHundredFortyEightCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithSixteenDollarsAndFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 1648;
+            var cents = 16.48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -329,14 +329,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithTwoThousandSixHundredFortyEightCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithTwentySixDollarsAndFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 2648;
+            var cents = 26.48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -389,14 +389,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithTenThousandSixHundredFortyEightCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithOneHundredSixDollarsAndFortyEightCents_EmptyExcludeListTest()
         {
-            var cents = 10648;
+            var cents = 106.48M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -449,14 +449,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_EmptyExcludeListTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_EmptyExcludeListTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -507,17 +507,17 @@ namespace GCC.Tests
             }
 
         }
-        
+
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_ExcludeHundredTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -571,14 +571,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredAndTwentyTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_ExcludeHundredAndTwentyTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -631,14 +631,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredAndTwentyAndTenTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_ExcludeHundredAndTwentyAndTenTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -690,14 +690,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredAndTwentyAndTenAndFiveTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndixteenCents_ExcludeHundredAndTwentyAndTenAndFiveTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -748,14 +748,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredAndTwentyAndTenAndFiveAndOneTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_ExcludeHundredAndTwentyAndTenAndFiveAndOneTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -805,14 +805,14 @@ namespace GCC.Tests
         }
 
         [TestMethod]
-        public void GetCorrectChangeWithThirteenThousandSixHundredSixteenCents_ExcludeHundredAndTwentyAndTenAndFiveAndOneAndDimeAndNickelTest()
+        public void GetCorrectChangeWithOneHundredThirtySixDollarsAndSixteenCents_ExcludeHundredAndTwentyAndTenAndFiveAndOneAndDimeAndNickelTest()
         {
-            var cents = 13616;
+            var cents = 136.16M;
             var resultList = new List<TillMoney>();
             var moneyList = _moneyList;
             foreach (var denom in moneyList)
             {
-                var tillMoney = new TillMoney {Name = denom.Name, PluralName = denom.PluralName};
+                var tillMoney = new TillMoney { Name = denom.Name, PluralName = denom.PluralName };
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
@@ -868,10 +868,10 @@ namespace GCC.Tests
         [TestMethod]
         public void PullFromTillWithZeroCentsAndHundredTest()
         {
-            const int cents = 0;
-            const int denominationToPull = 10000;
-            const int result = cents/denominationToPull;
-            const int remainder = cents%denominationToPull;
+            var cents = 0M;
+            var denominationToPull = 100.00M;
+            var result = decimal.Truncate(cents / denominationToPull);
+            var remainder = cents % denominationToPull;
             var expected = new TillResult
             {
                 Result = result,
@@ -887,10 +887,10 @@ namespace GCC.Tests
         [TestMethod]
         public void PullFromTillWithZeroCentsAndPennyTest()
         {
-            const int cents = 0;
-            const int denominationToPull = 1;
-            const int result = cents / denominationToPull;
-            const int remainder = cents % denominationToPull;
+            decimal cents = 0M;
+            decimal denominationToPull = .01M;
+            decimal result = decimal.Truncate(cents / denominationToPull);
+            decimal remainder = cents % denominationToPull;
             var expected = new TillResult
             {
                 Result = result,
@@ -906,10 +906,10 @@ namespace GCC.Tests
         [TestMethod]
         public void PullFromTillWithHundredCentsAndHundredTest()
         {
-            const int cents = 10000;
-            const int denominationToPull = 10000;
-            const int result = cents / denominationToPull;
-            const int remainder = cents % denominationToPull;
+            var cents = 100.00M;
+            var denominationToPull = 100.00M;
+            var result = decimal.Truncate(cents / denominationToPull);
+            var remainder = cents % denominationToPull;
             var expected = new TillResult
             {
                 Result = result,
@@ -925,10 +925,10 @@ namespace GCC.Tests
         [TestMethod]
         public void PullFromTillWithFortyEightCentsAndDimeTest()
         {
-            const int cents = 48;
-            const int denominationToPull = 10;
-            const int result = cents / denominationToPull;
-            const int remainder = cents % denominationToPull;
+            var cents = .48M;
+            var denominationToPull = .10M;
+            var result = decimal.Truncate(cents / denominationToPull);
+            var remainder = cents % denominationToPull;
             var expected = new TillResult
             {
                 Result = result,

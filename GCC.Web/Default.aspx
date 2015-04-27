@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <h1>Get Correct Change</h1>
         <!-- Out of SPECIFIC Denomination Checkboxes -->
-        <div class="row">
+       <%-- <div class="row">
             Please check Currency Type(s) <span style="color: red; font-weight: bolder">not</span> in the Till:
             <asp:CheckBoxList ID="excludeCheckBoxList" runat="server" CellPadding="5" CellSpacing="0" RepeatDirection="Horizontal" RepeatColumns="4">
                 <asp:ListItem>Hundred</asp:ListItem>
@@ -16,7 +16,7 @@
                 <asp:ListItem>Dime</asp:ListItem>
                 <asp:ListItem>Nickel</asp:ListItem>
             </asp:CheckBoxList>
-        </div>
+        </div>--%>
         <div class="form-group">
             <asp:Label ID="labelSale" runat="server" AssociatedControlID="saleTextBox" CssClass="col-md-12 control-label">Amount Of Sale (500.00 or less: dollars and cents without $)</asp:Label>
             <div class="col-md-12">
@@ -55,26 +55,38 @@
     <div class="row">
         <div class="col-md-3">
             <h2>Hundred</h2>
+            <h3>
+                <asp:Label ID="labelHundred" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgHundred" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Twenty</h2>
+            <h3>
+                <asp:Label ID="labelTwenty" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgTwenty" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Ten</h2>
+            <h3>
+                <asp:Label ID="labelTen" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgTen" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Five</h2>
+            <h3>
+                <asp:Label ID="labelFive" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgFive" runat="server" />
             </p>
         </div>
     </div>
@@ -82,26 +94,38 @@
     <div class="row">
         <div class="col-md-3">
             <h2>One</h2>
+            <h3>
+                <asp:Label ID="labelOne" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgOne" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Dime</h2>
+            <h3>
+                <asp:Label ID="labelDime" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgDime" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Nickel</h2>
+            <h3>
+                <asp:Label ID="labelNickel" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgNickel" runat="server" />
             </p>
         </div>
         <div class="col-md-3">
             <h2>Penny</h2>
+            <h3>
+                <asp:Label ID="labelPenny" runat="server" CssClass="text-success"></asp:Label>
+            </h3>
             <p>
-                
+                <asp:Image ID="imgPenny" runat="server" />
             </p>
         </div>
     </div>
