@@ -49,7 +49,7 @@ namespace GCC.Web
             else
             {
                 //var cents = ConvertDecimalMoneyToCents(sale) - ConvertDecimalMoneyToCents(cash);
-                var curChange = (sale - cash);
+                var curChange = (cash - sale);
                 var excludeList = MoneyManager.CreateExcludeList();
                 var change = CalculateChange.GetCorrectChange(curChange, excludeList);
 
