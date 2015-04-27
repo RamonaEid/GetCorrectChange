@@ -27,12 +27,10 @@ namespace GCC.Web
             var saleAmount = saleTextBox.Text;
             var cashTendered = cashTextBox.Text;
 
-            var isSaleMoney = false;
-            var isCashMoney = false;
             decimal sale;
             decimal cash;
-            isSaleMoney = decimal.TryParse(saleAmount, out sale);
-            isCashMoney = decimal.TryParse(cashTendered, out cash);
+            var isSaleMoney = decimal.TryParse(saleAmount, out sale);
+            var isCashMoney = decimal.TryParse(cashTendered, out cash);
 
             if (!(isSaleMoney && isCashMoney))
             {
@@ -51,6 +49,7 @@ namespace GCC.Web
                 resultLabel.Text = "Sale: " + sale + "<br/>Cash: " + cash + "<br/>Change: (coming soon)";
                 resultLabel.CssClass = "text-success";
             }
+
         }
     }
 }
