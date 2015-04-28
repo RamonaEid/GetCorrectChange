@@ -27,7 +27,6 @@ namespace GCC.Web
 
         private void Process()
         {
-            //TODO: refactor all of this
             var saleAmount = saleTextBox.Text;
             var cashTendered = cashTextBox.Text;
 
@@ -36,29 +35,32 @@ namespace GCC.Web
             var isSaleMoney = decimal.TryParse(saleAmount, out sale);
             var isCashMoney = decimal.TryParse(cashTendered, out cash);
 
+            var msg = "";
+            var cssClass = "";
             if (!(isSaleMoney && isCashMoney))
             {
-                resultLabel.Text =
-                    "AmountOfSale and CustomerGaveMe are both required. \r\nYou must enter dollars AND cents including the dot.";
-                resultLabel.CssClass = "text-danger";
+                msg = "AmountOfSale and CustomerGaveMe are both required. \r\nYou must enter dollars AND cents including the dot.";
+                cssClass = "text-danger";
+                FormatResultLabel(msg, cssClass);
             }
             else if (sale > 500.00M)
             {
-                resultLabel.Text = sale + " as Amount of Sale is OVER 500.00.";
-                resultLabel.CssClass = "text-danger";
+                msg = sale + " as Amount of Sale is OVER 500.00.";
+                cssClass = "text-danger";
+                FormatResultLabel(msg, cssClass);
                 saleTextBox.Text = "";
             }
             else if (cash < sale)
             {
-                resultLabel.Text = "Excuse me, but you haven't given me enough money to cover the sale.";
-                resultLabel.CssClass = "text-danger";
+                msg = "Excuse me, but you haven't given me enough money to cover the sale.";
+                cssClass = "text-danger";
+                FormatResultLabel(msg, cssClass);
                 ClearMoneyLabelsAndImages();
             }
             else
             {
                 var curChange = (cash - sale);
 
-                //var excludeList = MoneyManager.CreateExcludeList();
                 _excludedList = GetExludedList();
                 var excludeList = MoneyManager.CreateExcludeList(_excludedList.ToArray());
                 var change = CalculateChange.GetCorrectChange(curChange, excludeList);
@@ -66,10 +68,15 @@ namespace GCC.Web
                 resultLabel.Text = String.Format("Change: {0:C}", (sale - cash));
                 resultLabel.CssClass = "text-success";
 
-                //ShowNotInTillDisplay(_excludedList);
-                SetDisplay(change, excludeList);
+                SetMoneyDisplay(change, excludeList);
             }
 
+        }
+
+        private void FormatResultLabel(string msg, string cssClass)
+        {
+            resultLabel.Text = msg;
+            resultLabel.CssClass = cssClass;
         }
 
         private void ClearMoneyLabelsAndImages()
@@ -152,7 +159,7 @@ namespace GCC.Web
         }
 
 
-        private void SetDisplay(List<TillMoney> change, List<ICurrency> excludedList)
+        private void SetMoneyDisplay(List<TillMoney> change, List<ICurrency> excludedList)
         {
             var cssClass = "text-success";
 
@@ -161,52 +168,52 @@ namespace GCC.Web
                 switch (denom.Name)
                 {
                     case Enums.CurrencyType.Hundred:
-                        labelHundred.Text = FormatLabel(denom);
+                        labelHundred.Text = FormatMoneyLabel(denom);
                         labelHundred.CssClass = cssClass;
-                        imgHundred.ImageUrl = FormatImage(denom);
+                        imgHundred.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Twenty:
-                        labelTwenty.Text = FormatLabel(denom);
+                        labelTwenty.Text = FormatMoneyLabel(denom);
                         labelTwenty.CssClass = cssClass;
-                        imgTwenty.ImageUrl = FormatImage(denom);
+                        imgTwenty.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Ten:
-                        labelTen.Text = FormatLabel(denom);
+                        labelTen.Text = FormatMoneyLabel(denom);
                         labelTen.CssClass = cssClass;
-                        imgTen.ImageUrl = FormatImage(denom);
+                        imgTen.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Five:
-                        labelFive.Text = FormatLabel(denom);
+                        labelFive.Text = FormatMoneyLabel(denom);
                         labelFive.CssClass = cssClass;
-                        imgFive.ImageUrl = FormatImage(denom);
+                        imgFive.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.One:
-                        labelOne.Text = FormatLabel(denom);
+                        labelOne.Text = FormatMoneyLabel(denom);
                         labelOne.CssClass = cssClass;
-                        imgOne.ImageUrl = FormatImage(denom);
+                        imgOne.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Dime:
-                        labelDime.Text = FormatLabel(denom);
+                        labelDime.Text = FormatMoneyLabel(denom);
                         labelDime.CssClass = cssClass;
-                        imgDime.ImageUrl = FormatImage(denom);
+                        imgDime.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Nickel:
-                        labelNickel.Text = FormatLabel(denom);
+                        labelNickel.Text = FormatMoneyLabel(denom);
                         labelNickel.CssClass = cssClass;
-                        imgNickel.ImageUrl = FormatImage(denom);
+                        imgNickel.ImageUrl = FormatMoneyImage(denom);
                         break;
                     case Enums.CurrencyType.Penny:
-                        labelPenny.Text = FormatLabel(denom);
+                        labelPenny.Text = FormatMoneyLabel(denom);
                         labelPenny.CssClass = cssClass;
-                        imgPenny.ImageUrl = FormatImage(denom);
+                        imgPenny.ImageUrl = FormatMoneyImage(denom);
                         break;
                 }
             }
 
-            SetExcludedDisplay(excludedList);
+            SetExcludedMoneyDisplay(excludedList);
         }
 
-        private void SetExcludedDisplay(List<ICurrency> excludedList)
+        private void SetExcludedMoneyDisplay(List<ICurrency> excludedList)
         {
             const string text = "NOT IN TILL";
             const string cssClass = "text-danger";
@@ -260,14 +267,14 @@ namespace GCC.Web
             }
         }
 
-        private string FormatLabel(TillMoney denom)
+        private string FormatMoneyLabel(TillMoney denom)
         {
             var result = denom.Val == 1 ? String.Format("{0} {1}", denom.Val, denom.Name) : String.Format("{0} {1}", denom.Val, denom.PluralName);
 
             return result;
         }
 
-        private string FormatImage(TillMoney denom)
+        private string FormatMoneyImage(TillMoney denom)
         {
             var result = "";
             if (denom.Val == 0) return result;
