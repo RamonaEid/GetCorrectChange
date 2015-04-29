@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GCC.BL;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -865,6 +866,26 @@ namespace GCC.Tests
 
 
 
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void PullFromTillWithZeroCentsAndZeroDenominationTest()
+        {
+            var cents = 0M;
+            var denominationToPull = 0M;
+            var result = decimal.Truncate(cents / denominationToPull);
+            var remainder = cents % denominationToPull;
+            var expected = new TillResult
+            {
+                Result = result,
+                Remainder = remainder,
+            };
+
+            var actual = CalculateChange.PullDenominationFromTill(cents, denominationToPull);
+
+            Assert.AreEqual(expected.Result, actual.Result);
+            Assert.AreEqual(expected.Remainder, actual.Remainder);
+        }
+        
         [TestMethod]
         public void PullFromTillWithZeroCentsAndHundredTest()
         {
