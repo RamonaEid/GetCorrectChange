@@ -43,7 +43,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-12">
-                <asp:Button ID="getChangeButton" runat="server" Text="Get Change" OnClick="getChangeButton_Click" />
+                <asp:Button ID="getChangeButton" runat="server" Text="Get Change" CssClass="btn btn-lg btn-primary" OnClick="getChangeButton_Click" />
             </div>
         </div>
         <div class="form-group">
